@@ -1,3 +1,4 @@
+using System.Threading.Tasks.Sources;
 using BuberDinner.Application.Authentication.Common;
 using BuberDinner.Application.Common.Interfaces.Authentication;
 using BuberDinner.Application.Common.Interfaces.Persistence;
@@ -24,6 +25,7 @@ public class LoginQueryHandler : IRequestHandler<LoginQuery, ErrorOr<Authenticat
         CancellationToken cancellationToken
     )
     {
+        await Task.CompletedTask;
         // 1. Validate the user exists
         if (_userRepository.GetUserByEmail(query.Email) is not User user)
         {
