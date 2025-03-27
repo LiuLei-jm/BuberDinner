@@ -1,7 +1,9 @@
+using BuberDinner.Domain.Entities;
+
 namespace BuberDinner.Application.Common.Interfaces.Authentication
 {
     public interface IJwtTokenGenerator
     {
-        string GenerateJwtToken(Guid userId, string firstName, string lastName);
+        string GenerateJwtToken(User user);
     }
 }

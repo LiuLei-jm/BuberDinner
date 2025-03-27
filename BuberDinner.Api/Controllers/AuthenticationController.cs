@@ -16,36 +16,36 @@ namespace BuberDinner.Api.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> RegisterAsync([FromBody] RegisterRequest request)
+        public IActionResult RegisterAsync([FromBody] RegisterRequest request)
         {
-            var authResult = await _authenticationService.RegisterAsync(
+            var authResult =  _authenticationService.Register(
                 request.FirstName,
                 request.LastName,
                 request.Email,
                 request.Password
             );
             var response = new AuthenticationResponse(
-                authResult.Id,
-                authResult.FirstName,
-                authResult.LastName,
-                authResult.Email,
+                authResult.user.Id,
+                authResult.user.FirstName,
+                authResult.user.LastName,
+                authResult.user.Email,
                 authResult.Token
             );
             return Ok(response);
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> LoginAsync([FromBody] LoginRequest request)
+        public IActionResult LoginAsync([FromBody] LoginRequest request)
         {
-            var authResult = await _authenticationService.LoginAsync(
+            var authResult =  _authenticationService.Login(
                 request.Email,
                 request.Password
             );
             var response = new AuthenticationResponse(
-                authResult.Id,
-                authResult.FirstName,
-                authResult.LastName,
-                authResult.Email,
+                authResult.user.Id,
+                authResult.user.FirstName,
+                authResult.user.LastName,
+                authResult.user.Email,
                 authResult.Token
             );
             return Ok(response);
