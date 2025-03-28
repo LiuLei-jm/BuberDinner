@@ -1,6 +1,5 @@
 ﻿using BuberDinner.Api.Common.Http;
 using ErrorOr;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BuberDinner.Api.Controllers;
