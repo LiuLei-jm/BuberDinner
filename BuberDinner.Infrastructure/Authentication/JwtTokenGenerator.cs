@@ -9,12 +9,12 @@ using System.Text;
 
 namespace BuberDinner.Infrastructure.Authentication
 {
-    public class jwtTokenGenerator : IJwtTokenGenerator
+    public class JwtTokenGenerator : IJwtTokenGenerator
     {
         private readonly IDateTimeProvider _dateTimeProvider;
         private readonly JwtSettings _jwtSettings;
 
-        public jwtTokenGenerator(
+        public JwtTokenGenerator(
             IDateTimeProvider dateTimeProvider,
             IOptions<JwtSettings> jwtOptions
         )
