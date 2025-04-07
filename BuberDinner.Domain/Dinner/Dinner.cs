@@ -1,15 +1,10 @@
 ﻿using BuberDinner.Domain.Common.Models;
+using BuberDinner.Domain.Dinner.Entities;
 using BuberDinner.Domain.Dinner.Enums;
 using BuberDinner.Domain.Dinner.ValueObjects;
-using Price = BuberDinner.Domain.Dinner.ValueObjects.Price;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using BuberDinner.Domain.Host.ValueObjects;
 using BuberDinner.Domain.Menu.ValueObjects;
-using BuberDinner.Domain.Dinner.Entities;
+using Price = BuberDinner.Domain.Dinner.ValueObjects.Price;
 
 namespace BuberDinner.Domain.Dinner;
 public sealed class Dinner : AggregateRoot<DinnerId>
@@ -21,7 +16,7 @@ public sealed class Dinner : AggregateRoot<DinnerId>
     public DateTime EndDateTime { get; }
     public DateTime? StartedDateTime { get; } = null!;
     public DateTime? EndedDateTime { get; } = null!;
-    public  DinnerStatus Status { get; }
+    public DinnerStatus Status { get; }
     public bool IsPublic { get; }
     public int MaxGuest { get; }
     public Price Price { get; }

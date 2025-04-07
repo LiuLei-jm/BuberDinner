@@ -1,27 +1,23 @@
 ﻿using BuberDinner.Domain.Common.Models;
 using BuberDinner.Domain.Menu.ValueObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BuberDinner.Domain.Menu.Entities;
 public sealed class MenuSection : Entity<MenuSectionId>
 {
     private readonly List<MenuItem> _items = new();
 
-    public MenuSection(MenuSectionId id, string name, string description) : base(id)
-    {
-        Name = name;
-        Description = description;
-    }
 
     public string Name { get; }
     public string Description { get; }
     public IReadOnlyList<MenuItem> Items => _items.AsReadOnly();
-    public static MenuSection Create(string name, string description)
+    public MenuSection(MenuSectionId id, string name, string description, List<MenuItem> items) : base(id)
     {
-        return new MenuSection(MenuSectionId.CreateUnique(), name, description);
+        Name = name;
+        Description = description;
+        _items = items;
+    }
+    public static MenuSection Create(string name, string description, List<MenuItem> items)
+    {
+        return new MenuSection(MenuSectionId.CreateUnique(), name, description, items ?? new());
     }
 }

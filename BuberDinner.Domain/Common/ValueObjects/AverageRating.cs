@@ -1,9 +1,4 @@
 ﻿using BuberDinner.Domain.Common.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BuberDinner.Domain.Common.ValueObjects;
 public sealed class AverageRating : ValueObject
@@ -17,7 +12,7 @@ public sealed class AverageRating : ValueObject
         NumRatings = numRatings;
     }
 
-    public static AverageRating Create(double rating = 0,int numRatings = 0 )
+    public static AverageRating Create(double rating = 0, int numRatings = 0)
     {
         return new AverageRating(rating, numRatings);
     }

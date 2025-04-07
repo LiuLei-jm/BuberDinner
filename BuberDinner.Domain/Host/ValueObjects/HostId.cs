@@ -1,9 +1,4 @@
 ﻿using BuberDinner.Domain.Common.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BuberDinner.Domain.Host.ValueObjects;
 public sealed class HostId : ValueObject
@@ -19,6 +14,11 @@ public sealed class HostId : ValueObject
         return new HostId(Guid.NewGuid());
     }
 
+    public static HostId Create(string value)
+    {
+        //return new HostId(Guid.Parse(value));
+        return new HostId(Guid.NewGuid());
+    }
     public override IEnumerable<object> GetEqualityComponents()
     {
         yield return Value;

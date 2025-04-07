@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BuberDinner.Domain.Common.Models;
+﻿namespace BuberDinner.Domain.Common.Models;
 public abstract class Entity<TId> : IEquatable<Entity<TId>>
 {
     public TId Id { get; protected set; }

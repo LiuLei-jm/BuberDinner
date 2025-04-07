@@ -5,18 +5,13 @@ using BuberDinner.Domain.Guest.ValueObjects;
 using BuberDinner.Domain.Host.ValueObjects;
 using BuberDinner.Domain.Menu.ValueObjects;
 using BuberDinner.Domain.MenuReview.ValueObejcts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BuberDinner.Domain.MenuReview;
 public sealed class MenuReview : AggregateRoot<MenuReviewId>
 {
     public Rating Rating { get; }
     public string Comment { get; }
-    public HostId HostId { get;}
+    public HostId HostId { get; }
     public MenuId MenuId { get; }
     public GuestId GuestId { get; }
     public DinnerId DinnerId { get; }

@@ -4,11 +4,6 @@ using BuberDinner.Domain.Dinner.ValueObjects;
 using BuberDinner.Domain.Guest.ValueObjects;
 using BuberDinner.Domain.Host.ValueObjects;
 using Price = BuberDinner.Domain.Dinner.ValueObjects.Price;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BuberDinner.Domain.Bill;
 public sealed class Bill : AggregateRoot<BillId>

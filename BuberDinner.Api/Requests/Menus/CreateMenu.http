@@ -1,0 +1,27 @@
+# For more info on HTTP files go to https://aka.ms/vs/httpfile
+@host=http://localhost:5172
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OTMwYzRhMi01Zjc1LTRmZGQtYmI1Yi02YmYyYTFmNWIyNDkiLCJnaXZlbl9uYW1lIjoiSm9obiIsImZhbWlseV9uYW1lIjoiRG9lIiwianRpIjoiMTQyNzM1MDgtZjEwOC00MzRhLWJlMjktNzZjODc4MmVhZGFlIiwiZXhwIjoxNzQ0MDIwNDMxLCJpc3MiOiJCdWJlckRpbm5lciIsImF1ZCI6IkJ1YmVyRGlubmVyIn0.jy9b6FqIO4HYyK0rw_OfOdkfr-MbQta_RNHHXT3CEMA
+@hostId=asdf
+
+POST {{host}}/hosts/{{hostId}}/menus
+Content-Type : application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "Yummy Menu",
+    "description": "A menu with yummy food",
+    "sections": [
+        {
+            "name": "Appetizers",
+            "description": "Starters",
+            "items": [
+                {
+                    "name":"Fried Pickles",
+                    "description": "Deep fried pickles"
+                }
+            ]
+        }
+    ]
+}
+
+
