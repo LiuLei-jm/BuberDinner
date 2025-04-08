@@ -7,7 +7,7 @@ using BuberDinner.Domain.Menu.ValueObjects;
 using BuberDinner.Domain.MenuReview.ValueObejcts;
 
 namespace BuberDinner.Domain.Menu;
-public sealed class Menu : AggregateRoot<MenuId>
+public sealed class Menu : AggregateRoot<MenuId, Guid>
 {
     private readonly List<MenuSection> _sections = new();
     private readonly List<DinnerId> _dinnerIds = new();
@@ -25,8 +25,9 @@ public sealed class Menu : AggregateRoot<MenuId>
     public IReadOnlyList<MenuReviewId> MenuReviewIds => _menuReviewIds.AsReadOnly();
     public DateTime CreatedDateTime { get; private set; } = DateTime.UtcNow;
     public DateTime UpdatedDateTime { get; private set; } = DateTime.UtcNow;
-    protected Menu(MenuId menuId, HostId hostId, string name, string description, AverageRating averageRating, List<MenuSection> sections) : base(menuId)
+    protected Menu(MenuId menuId, HostId hostId, string name, string description, AverageRating averageRating, List<MenuSection> sections) 
     {
+        Id = menuId;
         HostId = hostId;
         Name = name;
         Description = description;

@@ -7,7 +7,7 @@ using BuberDinner.Domain.Menu.ValueObjects;
 using Price = BuberDinner.Domain.Dinner.ValueObjects.Price;
 
 namespace BuberDinner.Domain.Dinner;
-public sealed class Dinner : AggregateRoot<DinnerId>
+public sealed class Dinner : AggregateRoot<DinnerId, Guid>
 {
     private static List<Reservation> _reservations => new();
     public string Name { get; }
@@ -29,6 +29,7 @@ public sealed class Dinner : AggregateRoot<DinnerId>
     public DateTime UpdatedDateTime { get; }
     private Dinner(DinnerId dinnerId, string name, string description, DateTime startDateTime, DateTime endDateTime, DinnerStatus status, bool isPublic, int maxGuest, Price price, HostId hostId, MenuId menuId, string imageUrl, Location location) : base(dinnerId)
     {
+        Id = dinnerId;
         Name = name;
         Description = description;
         StartDateTime = startDateTime;

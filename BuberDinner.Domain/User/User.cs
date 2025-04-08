@@ -2,16 +2,17 @@
 using BuberDinner.Domain.User.ValueObjects;
 
 namespace BuberDinner.Domain.User;
-public sealed class User : AggregateRoot<UserId>
+public sealed class User : AggregateRoot<UserId,Guid>
 {
-    public string FirstName { get; }
-    public string LastName { get; }
-    public string Email { get; }
-    public string Password { get; }
-    public DateTime CreatedDateTime { get; }
-    public DateTime UpdatedDateTime { get; }
-    private User(UserId id, string firstName, string lastName, string email, string password) : base(id)
+    public string FirstName { get; private set; }
+    public string LastName { get; private set; }
+    public string Email { get; private set; }
+    public string Password { get; private set; }
+    public DateTime CreatedDateTime { get; private set; }
+    public DateTime UpdatedDateTime { get; private set; }
+    private User(UserId userId, string firstName, string lastName, string email, string password) 
     {
+        Id = userId;
         FirstName = firstName;
         LastName = lastName;
         Email = email;

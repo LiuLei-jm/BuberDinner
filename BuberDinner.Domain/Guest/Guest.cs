@@ -7,7 +7,7 @@ using BuberDinner.Domain.MenuReview.ValueObejcts;
 using BuberDinner.Domain.User.ValueObjects;
 
 namespace BuberDinner.Domain.Guest;
-public sealed class Guest : AggregateRoot<GuestId>
+public sealed class Guest : AggregateRoot<GuestId, Guid>
 {
     private readonly List<DinnerId> _upcomingDinnerIds = new();
     private readonly List<DinnerId> _pastDinnerIds = new();
@@ -28,8 +28,9 @@ public sealed class Guest : AggregateRoot<GuestId>
     public IReadOnlyList<Rating> Ratings => _ratins.AsReadOnly();
     public DateTime CreatedDateTime { get; }
     public DateTime UpdatedDateTime { get; }
-    private Guest(GuestId id, string firstName, string lastName, string profileImage, UserId userId) : base(id)
+    private Guest(GuestId guestId, string firstName, string lastName, string profileImage, UserId userId) 
     {
+        Id = guestId;
         FirstName = firstName;
         LastName = lastName;
         ProfileImage = profileImage;
