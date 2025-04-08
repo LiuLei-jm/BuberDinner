@@ -27,7 +27,23 @@ public sealed class Dinner : AggregateRoot<DinnerId>
     public IReadOnlyList<Reservation> Reservations => _reservations.AsReadOnly();
     public DateTime CreatedDateTime { get; }
     public DateTime UpdatedDateTime { get; }
-    public Dinner(DinnerId id) : base(id)
+    private Dinner(DinnerId dinnerId, string name, string description, DateTime startDateTime, DateTime endDateTime, DinnerStatus status, bool isPublic, int maxGuest, Price price, HostId hostId, MenuId menuId, string imageUrl, Location location) : base(dinnerId)
     {
+        Name = name;
+        Description = description;
+        StartDateTime = startDateTime;
+        EndDateTime = endDateTime;
+        Status = status;
+        IsPublic = isPublic;
+        MaxGuest = maxGuest;
+        Price = price;
+        HostId = hostId;
+        MenuId = menuId;
+        ImageUrl = imageUrl;
+        Location = location;
+    }
+    public static Dinner Create(string name, string description, DateTime startDateTime, DateTime endDateTime, DinnerStatus status, bool isPublic, int maxGuest, Price price, HostId hostId, MenuId menuId, string imageUrl, Location location)
+    {
+        return new Dinner(DinnerId.CreateUnique(), name, description, startDateTime, endDateTime, status, isPublic, maxGuest, price, hostId, menuId, imageUrl, location);
     }
 }

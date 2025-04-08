@@ -19,7 +19,7 @@ public sealed class Host : AggregateRoot<HostId>
     public IReadOnlyList<DinnerId> DinnerIds => _dinnerIds.AsReadOnly();
     public DateTime CreatedDateTime { get; }
     public DateTime UpdatedDateTime { get; }
-    public Host(HostId id, string firstName, string lastName, string profileImage, UserId userId, DateTime createdDateTime, DateTime updatedDateTime) : base(id)
+    private Host(HostId id, string firstName, string lastName, string profileImage, UserId userId, DateTime createdDateTime, DateTime updatedDateTime) : base(id)
     {
         FirstName = firstName;
         LastName = lastName;

@@ -5,9 +5,25 @@ public sealed class DinnerId : ValueObject
 {
     public Guid Value { get; }
 
-    public DinnerId(Guid value)
+    private DinnerId(Guid value)
     {
         Value = value;
+    }
+    public static DinnerId Create(Guid value)
+    {
+        if(value == Guid.Empty)
+        {
+            throw new ArgumentException("DinnerId cannot be empty", nameof(value));
+        }
+        return new DinnerId(value);
+    }
+    public static DinnerId Create(string value)
+    {
+        if (value is null)
+        {
+            throw new ArgumentNullException("DinnerId cannot be empty", nameof(value));
+        }
+        return new DinnerId(Guid.Parse(value));
     }
     public static DinnerId CreateUnique()
     {

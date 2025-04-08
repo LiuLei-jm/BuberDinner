@@ -5,7 +5,7 @@ public sealed class BillId : ValueObject
 {
     public Guid Value { get; }
 
-    public BillId(Guid value)
+    private BillId(Guid value)
     {
         Value = value;
     }
