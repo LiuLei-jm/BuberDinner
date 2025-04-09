@@ -7,7 +7,7 @@ using BuberDinner.Domain.Menu.ValueObjects;
 using BuberDinner.Domain.MenuReview.ValueObejcts;
 
 namespace BuberDinner.Domain.MenuReview;
-public sealed class MenuReview : AggregateRoot<MenuReviewId,Guid>
+public sealed class MenuReview : AggregateRoot<MenuReviewId, Guid>
 {
     public Rating Rating { get; }
     public string Comment { get; }

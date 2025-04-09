@@ -11,7 +11,7 @@ public sealed class DinnerId : AggregateRootId<Guid>
     }
     public static DinnerId Create(Guid value)
     {
-        if(value == Guid.Empty)
+        if (value == Guid.Empty)
         {
             throw new ArgumentException("DinnerId cannot be empty", nameof(value));
         }

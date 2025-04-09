@@ -2,8 +2,8 @@
 using BuberDinner.Contracts.Menus;
 using BuberDinner.Domain.Menu;
 using Mapster;
-using MenuSection = BuberDinner.Domain.Menu.Entities.MenuSection;
 using MenuItem = BuberDinner.Domain.Menu.Entities.MenuSection;
+using MenuSection = BuberDinner.Domain.Menu.Entities.MenuSection;
 
 namespace BuberDinner.Api.Common.Mapping;
 

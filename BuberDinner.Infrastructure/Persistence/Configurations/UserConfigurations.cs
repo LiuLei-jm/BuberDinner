@@ -2,11 +2,6 @@
 using BuberDinner.Domain.User.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BuberDinner.Infrastructure.Persistence.Configurations;
 public class UserConfigurations : IEntityTypeConfiguration<User>
@@ -19,7 +14,7 @@ public class UserConfigurations : IEntityTypeConfiguration<User>
                     .ValueGeneratedNever()
                     .HasConversion(
             id => id.Value,
-            value => UserId.Create(value) 
+            value => UserId.Create(value)
             );
         builder.Property(user => user.FirstName).HasMaxLength(100);
         builder.Property(user => user.LastName).HasMaxLength(100);

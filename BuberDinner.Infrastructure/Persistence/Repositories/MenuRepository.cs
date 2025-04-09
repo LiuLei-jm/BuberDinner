@@ -1,12 +1,8 @@
 ﻿using BuberDinner.Application.Common.Interfaces.Persistence;
 using BuberDinner.Domain.Menu;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BuberDinner.Infrastructure.Persistence.Repositories;
+
 public class MenuRepository : IMenuRepository
 {
     private readonly BuberDinnerDbContext _dbContext;
@@ -20,5 +16,10 @@ public class MenuRepository : IMenuRepository
     {
         _dbContext.Add(menu);
         _dbContext.SaveChanges();
+    }
+
+    public List<Menu> GetAll()
+    {
+        return _dbContext.Menus.ToList();
     }
 }
