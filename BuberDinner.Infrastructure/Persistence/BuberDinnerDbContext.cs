@@ -1,4 +1,5 @@
 ﻿using BuberDinner.Domain.Menu;
+using BuberDinner.Domain.User;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ public class BuberDinnerDbContext : DbContext
     {
     }
     public DbSet<Menu> Menus { get; set; } = null!;
+    public DbSet<User> Users { get; set; } = null!;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

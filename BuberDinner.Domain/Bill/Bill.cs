@@ -14,9 +14,8 @@ public sealed class Bill : AggregateRoot<BillId, Guid>
     public Price Price { get; }
     public DateTime CreatedDateTime { get; }
     public DateTime UpdatedDateTime { get; }
-    private Bill(BillId billId, DinnerId dinnerId, GuestId guestId, HostId hostId) 
+    private Bill(BillId billId, DinnerId dinnerId, GuestId guestId, HostId hostId) : base(billId)
     {
-        Id = billId;
         DinnerId = dinnerId;
         GuestId = guestId;
         HostId = hostId;

@@ -10,9 +10,8 @@ public sealed class User : AggregateRoot<UserId,Guid>
     public string Password { get; private set; }
     public DateTime CreatedDateTime { get; private set; }
     public DateTime UpdatedDateTime { get; private set; }
-    private User(UserId userId, string firstName, string lastName, string email, string password) 
+    private User(UserId userId, string firstName, string lastName, string email, string password) : base(userId)
     {
-        Id = userId;
         FirstName = firstName;
         LastName = lastName;
         Email = email;
@@ -24,4 +23,8 @@ public sealed class User : AggregateRoot<UserId,Guid>
     {
         return new User(UserId.CreateUnique(), firstName, lastName, email, password);
     }
+
+#pragma warning disable CS8618
+    private User() { }
+#pragma warning restore CS8618
 }

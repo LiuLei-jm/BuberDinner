@@ -28,9 +28,8 @@ public sealed class Guest : AggregateRoot<GuestId, Guid>
     public IReadOnlyList<Rating> Ratings => _ratins.AsReadOnly();
     public DateTime CreatedDateTime { get; }
     public DateTime UpdatedDateTime { get; }
-    private Guest(GuestId guestId, string firstName, string lastName, string profileImage, UserId userId) 
+    private Guest(GuestId guestId, string firstName, string lastName, string profileImage, UserId userId) : base(guestId)
     {
-        Id = guestId;
         FirstName = firstName;
         LastName = lastName;
         ProfileImage = profileImage;

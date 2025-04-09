@@ -15,7 +15,7 @@ public sealed class Reservation : Entity<ReservationId>
     public DateTime? ArrivalDateTime { get; } = null!;
     public DateTime CreatedDateTime { get; }
     public DateTime UpdatedDateTime { get; }
-    private Reservation(ReservationId id, int guestCount, ReservationStatus reservationStatus, GuestId guestId, BillId billId, DateTime createdDateTime, DateTime updatedDateTime) : base(id)
+    private Reservation(ReservationId reservationId, int guestCount, ReservationStatus reservationStatus, GuestId guestId, BillId billId, DateTime createdDateTime, DateTime updatedDateTime) : base(reservationId)
     {
         GuestCount = guestCount;
         ReservationStatus = reservationStatus;

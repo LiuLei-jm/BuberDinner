@@ -8,7 +8,7 @@ public sealed class GuestRating : Entity<GuestRatingId>
     public int Stars { get; }
     public DateTime CreatedDateTime { get; }
     public DateTime UpdatedDateTime { get; }
-    private GuestRating(GuestRatingId id, string comment, int stars) : base(id)
+    private GuestRating(GuestRatingId guestRatingId, string comment, int stars) : base(guestRatingId)
     {
         Comment = comment;
         Stars = stars;

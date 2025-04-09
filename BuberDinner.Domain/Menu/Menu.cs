@@ -19,15 +19,12 @@ public sealed class Menu : AggregateRoot<MenuId, Guid>
 
     public IReadOnlyList<MenuSection> Sections => _sections.AsReadOnly();
     public HostId HostId { get; private set; }
-    public DateTime CreateDatedTime { get; private set; }
-
     public IReadOnlyList<DinnerId> DinnerIds => _dinnerIds.AsReadOnly();
     public IReadOnlyList<MenuReviewId> MenuReviewIds => _menuReviewIds.AsReadOnly();
     public DateTime CreatedDateTime { get; private set; } = DateTime.UtcNow;
     public DateTime UpdatedDateTime { get; private set; } = DateTime.UtcNow;
-    protected Menu(MenuId menuId, HostId hostId, string name, string description, AverageRating averageRating, List<MenuSection> sections) 
+    private Menu(MenuId menuId, HostId hostId, string name, string description, AverageRating averageRating, List<MenuSection> sections) : base(menuId)
     {
-        Id = menuId;
         HostId = hostId;
         Name = name;
         Description = description;
