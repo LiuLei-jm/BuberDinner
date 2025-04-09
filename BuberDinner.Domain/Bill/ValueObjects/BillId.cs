@@ -1,11 +1,11 @@
 ﻿using BuberDinner.Domain.Common.Models;
 
 namespace BuberDinner.Domain.Bill.ValueObjects;
-public sealed class BillId : ValueObject
+public sealed class BillId : AggregateRootId<Guid>
 {
-    public Guid Value { get; }
+    public override Guid Value { get; protected set; }
 
-    public BillId(Guid value)
+    private BillId(Guid value)
     {
         Value = value;
     }

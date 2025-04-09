@@ -7,7 +7,7 @@ using BuberDinner.Domain.Menu.ValueObjects;
 using BuberDinner.Domain.MenuReview.ValueObejcts;
 
 namespace BuberDinner.Domain.MenuReview;
-public sealed class MenuReview : AggregateRoot<MenuReviewId>
+public sealed class MenuReview : AggregateRoot<MenuReviewId,Guid>
 {
     public Rating Rating { get; }
     public string Comment { get; }
@@ -17,7 +17,7 @@ public sealed class MenuReview : AggregateRoot<MenuReviewId>
     public DinnerId DinnerId { get; }
     public DateTime CreatedDateTime { get; }
     public DateTime UpdatedDateTime { get; }
-    public MenuReview(MenuReviewId id, Rating rating, string comment, HostId hostId, MenuId menuId, GuestId guestId, DinnerId dinnerId, DateTime createdDateTime, DateTime updatedDateTime) : base(id)
+    private MenuReview(MenuReviewId menuReviewId, Rating rating, string comment, HostId hostId, MenuId menuId, GuestId guestId, DinnerId dinnerId, DateTime createdDateTime, DateTime updatedDateTime) : base(menuReviewId)
     {
         Rating = rating;
         Comment = comment;

@@ -1,11 +1,11 @@
 ﻿using BuberDinner.Domain.Common.Models;
 
 namespace BuberDinner.Domain.Host.ValueObjects;
-public sealed class HostId : ValueObject
+public sealed class HostId : AggregateRootId<Guid>
 {
-    public Guid Value { get; }
+    public override Guid Value { get; protected set; }
 
-    public HostId(Guid value)
+    private HostId(Guid value)
     {
         Value = value;
     }
@@ -14,8 +14,20 @@ public sealed class HostId : ValueObject
         return new HostId(Guid.NewGuid());
     }
 
+    public static HostId Create(Guid value)
+    {
+        if (value == Guid.Empty)
+        {
+            throw new ArgumentException("HostId cannot be empty", nameof(value));
+        }
+        return new HostId(value);
+    }
     public static HostId Create(string value)
     {
+        if (value is null)
+        {
+            throw new ArgumentNullException("HostId cannot be empty", nameof(value));
+        }
         return new HostId(Guid.Parse(value));
     }
     public override IEnumerable<object> GetEqualityComponents()

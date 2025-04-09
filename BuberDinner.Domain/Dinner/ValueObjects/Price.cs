@@ -5,7 +5,7 @@ public sealed class Price : ValueObject
 {
     public double Amount { get; }
     public string Currency { get; }
-    public Price(double amount, string currency)
+    private Price(double amount, string currency)
     {
         Amount = amount;
         Currency = currency;

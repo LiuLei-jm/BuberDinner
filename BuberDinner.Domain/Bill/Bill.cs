@@ -6,7 +6,7 @@ using BuberDinner.Domain.Host.ValueObjects;
 using Price = BuberDinner.Domain.Dinner.ValueObjects.Price;
 
 namespace BuberDinner.Domain.Bill;
-public sealed class Bill : AggregateRoot<BillId>
+public sealed class Bill : AggregateRoot<BillId, Guid>
 {
     public DinnerId DinnerId { get; }
     public GuestId GuestId { get; }
@@ -14,17 +14,17 @@ public sealed class Bill : AggregateRoot<BillId>
     public Price Price { get; }
     public DateTime CreatedDateTime { get; }
     public DateTime UpdatedDateTime { get; }
-    public Bill(BillId id, DinnerId dinnerId, GuestId guestId, HostId hostId, DateTime createdDateTime, DateTime UpdatedDateTime) : base(id)
+    private Bill(BillId billId, DinnerId dinnerId, GuestId guestId, HostId hostId) : base(billId)
     {
         DinnerId = dinnerId;
         GuestId = guestId;
         HostId = hostId;
-        CreatedDateTime = createdDateTime;
-        this.UpdatedDateTime = UpdatedDateTime;
+        CreatedDateTime = DateTime.UtcNow;
+        UpdatedDateTime = DateTime.UtcNow;
     }
     public static Bill Create(DinnerId dinnerId, GuestId guestId, HostId hostId)
     {
-        return new Bill(BillId.CreateUnique(), dinnerId, guestId, hostId, DateTime.UtcNow, DateTime.UtcNow)
+        return new Bill(BillId.CreateUnique(), dinnerId, guestId, hostId)
         ;
     }
 }
