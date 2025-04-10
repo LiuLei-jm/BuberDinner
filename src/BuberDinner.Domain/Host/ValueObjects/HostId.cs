@@ -28,7 +28,8 @@ public sealed class HostId : AggregateRootId<Guid>
         {
             throw new ArgumentNullException("HostId cannot be empty", nameof(value));
         }
-        return new HostId(Guid.Parse(value));
+        Guid.TryParse(value, out var guidValue);
+        return new HostId(guidValue);
     }
     public override IEnumerable<object> GetEqualityComponents()
     {

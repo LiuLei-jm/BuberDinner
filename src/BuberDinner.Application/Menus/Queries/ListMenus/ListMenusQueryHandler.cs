@@ -20,7 +20,7 @@ public class ListMenusQueryHandler : IRequestHandler<ListMenusQuery, ErrorOr<Lis
     )
     {
         await Task.CompletedTask; // Simulate async work
-        var menu = _menuRepository.GetAll();
+        var menu = await _menuRepository.GetAllAsync();
         return menu;
     }
 }

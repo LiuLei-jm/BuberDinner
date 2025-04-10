@@ -1,5 +1,6 @@
 ﻿using BuberDinner.Application.Common.Interfaces.Persistence;
 using BuberDinner.Domain.Menu;
+using Microsoft.EntityFrameworkCore;
 
 namespace BuberDinner.Infrastructure.Persistence.Repositories;
 
@@ -12,14 +13,14 @@ public class MenuRepository : IMenuRepository
         _dbContext = dbContext;
     }
 
-    public void Add(Menu menu)
+    public async Task AddAsync(Menu menu)
     {
-        _dbContext.Add(menu);
-        _dbContext.SaveChanges();
+        await _dbContext.AddAsync(menu);
+        await _dbContext.SaveChangesAsync();
     }
 
-    public List<Menu> GetAll()
+    public async Task<List<Menu>> GetAllAsync()
     {
-        return _dbContext.Menus.ToList();
+        return await _dbContext.Menus.ToListAsync();
     }
 }
