@@ -1,0 +1,8 @@
+# For more info on HTTP files go to https://aka.ms/vs/httpfile
+@host=http://localhost:5172
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyMGViMjJhOC02YjFlLTQ3YjMtYWUyYi1jZTE4MjY4NTgwMDYiLCJnaXZlbl9uYW1lIjoiSm9obiIsImZhbWlseV9uYW1lIjoiRG9lIiwianRpIjoiNmFiZDgxMGYtOTJiZC00ZjNjLThhMWItZWI1YjNjZmM1ZGQ0IiwiZXhwIjoxNzQ0MTkzNjMzLCJpc3MiOiJCdWJlckRpbm5lciIsImF1ZCI6IkJ1YmVyRGlubmVyIn0.HEc64gQn1VpOuBLUC09N1j9IV8x7FLKkGPAZuxAH3As
+@hostId=818b9498-fab1-4b0d-8c53-e342b55530f9
+
+GET {{host}}/hosts/{{hostId}}/menus
+Authorization: Bearer {{token}}
+
